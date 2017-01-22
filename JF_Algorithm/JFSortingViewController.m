@@ -96,7 +96,9 @@
     }else{
 //        [self buddleSort:self.data];
 //        [self quickSortWithArray:self.data];
-        [self selectSort:self.data];
+//        [self selectSort:self.data];
+//        [self inserSort:self.data];
+        [self ShellSort:self.data dk:self.data.count/2];
     }
 
 }
@@ -189,6 +191,67 @@
     
 }
 
+/**
+ *
+ *插入排序
+ *
+ *
+ *
+ ******/
+- (void)inserSort:(NSMutableArray *)array
+{
+    if(array == nil || array.count == 0){
+        return;
+    }
+    
+    for (int i = 0; i < array.count; i++) {
+        NSNumber *temp = array[i];
+        int j = i-1;
+        
+        while (j >= 0 && [array[j] compare:temp] == NSOrderedDescending) {
+            [array replaceObjectAtIndex:j+1 withObject:array[j]];
+            j--;
+            
+        }
+        
+        [array replaceObjectAtIndex:j+1 withObject:temp];
+    }
+    NSString *string = [array componentsJoinedByString:@",  "];
+    self.sortedNumberLabel.text = string;
+
+    
+}
+
+//希尔排序,初始的dk值为array.count/2
+- (void)ShellSort:(NSMutableArray *)array dk:(int)dk
+{
+    
+    if(array == nil || array.count == 0||dk>=array.count){
+        return;
+    }
+    
+    for (int i = 0; i < array.count; i ++) {
+        NSNumber *temp = array[i];
+        int j = i - dk;
+        
+        //若第i个元素大于i-1元素，直接插入。小于的话，移动有序表后插入
+        while (j >= 0 && [array[j] compare:temp] == NSOrderedDescending) {
+            [array replaceObjectAtIndex:j+dk withObject:array[j]];
+            j-=dk;
+        }
+        [array replaceObjectAtIndex:j+dk withObject:temp];
+        
+    }
+    
+    while (dk>=1) {
+        dk = dk/2;
+        [self ShellSort:array dk:dk];
+    }
+    
+    NSString *string = [array componentsJoinedByString:@",  "];
+    self.sortedNumberLabel.text = string;
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
