@@ -7,8 +7,9 @@
 //
 
 #import "JFAlgorithmListViewController.h"
+#import "JFSortingViewController.h"
 
-@interface JFAlgorithmListViewController ()<UITableViewDataSource>
+@interface JFAlgorithmListViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong)UITableView *jfTableView;
 @property(nonatomic,strong)NSArray *algorithmArray;
 
@@ -31,6 +32,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (!cell) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+        cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = self.algorithmArray [indexPath.row];
 
     }
@@ -43,6 +45,7 @@
     if (!_jfTableView) {
         _jfTableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
         _jfTableView.dataSource = self;
+        _jfTableView.delegate = self;
     }
     return _jfTableView;
 }
@@ -53,10 +56,18 @@
     }
     return _algorithmArray;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    JFSortingViewController *sortVC = [[JFSortingViewController alloc]init];
+    sortVC.algorithmString = self.algorithmArray[indexPath.row];
+    [self.navigationController pushViewController:sortVC animated:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 
