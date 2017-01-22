@@ -98,7 +98,7 @@
 //        [self quickSortWithArray:self.data];
 //        [self selectSort:self.data];
 //        [self inserSort:self.data];
-        [self ShellSort:self.data dk:self.data.count/2];
+        [self ShellSort:self.data dk:(int)self.data.count /2];
     }
 
 }
