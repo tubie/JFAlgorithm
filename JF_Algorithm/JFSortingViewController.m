@@ -95,11 +95,18 @@
         [self initData];
     }else{
 //        [self buddleSort:self.data];
-        [self quickSortWithArray:self.data];
+//        [self quickSortWithArray:self.data];
+        [self selectSort:self.data];
     }
 
 }
-
+/**
+ *
+ *冒泡排序
+ *
+ *
+ *
+ ******/
 - (void)buddleSort:(NSMutableArray *)array
 {
     if(array == nil || array.count == 0){
@@ -115,7 +122,13 @@
     NSString *string = [array componentsJoinedByString:@",  "];
     self.sortedNumberLabel.text = string;
 }
-
+/**
+ *
+ *快速排序
+ *
+ *
+ *
+ ******/
 -(void)quickSortWithArray:(NSArray *)aData{
     NSMutableArray *data = [[NSMutableArray alloc] initWithArray:aData];
     [self quickSortWithArray:data left:0 right:[aData count]-1];
@@ -147,6 +160,35 @@
     [aData replaceObjectAtIndex:index1 withObject:[aData objectAtIndex:index2]];
     [aData replaceObjectAtIndex:index2 withObject:tmp];
 }
+
+/**
+ *
+ *选择排序
+ *
+ *
+ *
+ ******/
+- (void)selectSort:(NSMutableArray *)array
+{
+    if(array == nil || array.count == 0){
+        return;
+    }
+    
+    int min_index;
+    for (int i = 0; i < array.count; i++) {
+        min_index = i;
+        for (int j = i + 1; j<array.count; j++) {
+            if ([array[j] compare:array[min_index]] == NSOrderedAscending) {
+                [array exchangeObjectAtIndex:j withObjectAtIndex:min_index];
+            }
+            
+        }
+    }
+    NSString *string = [array componentsJoinedByString:@",  "];
+    self.sortedNumberLabel.text = string;
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
