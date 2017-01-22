@@ -94,8 +94,8 @@
     if (button.tag == 98) {
         [self initData];
     }else{
-        [self buddleSort:self.data];
-    
+//        [self buddleSort:self.data];
+        [self quickSortWithArray:self.data];
     }
 
 }
@@ -114,8 +114,38 @@
     }
     NSString *string = [array componentsJoinedByString:@",  "];
     self.sortedNumberLabel.text = string;
+}
 
+-(void)quickSortWithArray:(NSArray *)aData{
+    NSMutableArray *data = [[NSMutableArray alloc] initWithArray:aData];
+    [self quickSortWithArray:data left:0 right:[aData count]-1];
+    NSString *string = [data componentsJoinedByString:@",  "];
+    self.sortedNumberLabel.text = string;
+//    NSLog(@"快速排序后的结果：%@",[data description]);
     
+}
+
+-(void)quickSortWithArray:(NSMutableArray *)aData left:(NSInteger)left right:(NSInteger)right{
+    if (right > left) {
+        NSInteger i = left;
+        NSInteger j = right + 1;
+        while (true) {
+            while (i+1 < [aData count] && [aData objectAtIndex:++i] < [aData objectAtIndex:left]) ;
+            while (j-1 > -1 && [aData objectAtIndex:--j] > [aData objectAtIndex:left]) ;
+            if (i >= j) {
+                break;
+            }
+            [self swapWithData:aData index1:i index2:j];
+        }
+        [self swapWithData:aData index1:left index2:j];
+        [self quickSortWithArray:aData left:left right:j-1];
+        [self quickSortWithArray:aData left:j+1 right:right];
+    }
+}
+-(void)swapWithData:(NSMutableArray *)aData index1:(NSInteger)index1 index2:(NSInteger)index2{
+    NSNumber *tmp = [aData objectAtIndex:index1];
+    [aData replaceObjectAtIndex:index1 withObject:[aData objectAtIndex:index2]];
+    [aData replaceObjectAtIndex:index2 withObject:tmp];
 }
 
 - (void)didReceiveMemoryWarning {
