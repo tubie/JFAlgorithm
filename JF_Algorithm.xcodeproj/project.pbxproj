@@ -18,6 +18,7 @@
 		E8E0EC1B1E3462EB00DDE9A1 /* JFSortingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E0EC1A1E3462EB00DDE9A1 /* JFSortingViewController.m */; };
 		E8E0EC1C1E3462EB00DDE9A1 /* JFSortingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E0EC1A1E3462EB00DDE9A1 /* JFSortingViewController.m */; };
 		E8E0EC1D1E3462EB00DDE9A1 /* JFSortingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E0EC1A1E3462EB00DDE9A1 /* JFSortingViewController.m */; };
+		E8E0EC201E36107800DDE9A1 /* JFSortingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E0EC1F1E36107800DDE9A1 /* JFSortingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		E8E0EC131E2F616100DDE9A1 /* JFAlgorithmListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFAlgorithmListViewController.m; sourceTree = "<group>"; };
 		E8E0EC191E3462EB00DDE9A1 /* JFSortingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFSortingViewController.h; sourceTree = "<group>"; };
 		E8E0EC1A1E3462EB00DDE9A1 /* JFSortingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFSortingViewController.m; sourceTree = "<group>"; };
+		E8E0EC1E1E36107800DDE9A1 /* JFSortingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFSortingHelper.h; sourceTree = "<group>"; };
+		E8E0EC1F1E36107800DDE9A1 /* JFSortingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFSortingHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,8 @@
 				E8E0EC131E2F616100DDE9A1 /* JFAlgorithmListViewController.m */,
 				E8E0EC191E3462EB00DDE9A1 /* JFSortingViewController.h */,
 				E8E0EC1A1E3462EB00DDE9A1 /* JFSortingViewController.m */,
+				E8E0EC1E1E36107800DDE9A1 /* JFSortingHelper.h */,
+				E8E0EC1F1E36107800DDE9A1 /* JFSortingHelper.m */,
 				E8E0EBEB1E2F5FFA00DDE9A1 /* Assets.xcassets */,
 				E8E0EBF01E2F5FFA00DDE9A1 /* Info.plist */,
 				E8E0EBDF1E2F5FFA00DDE9A1 /* Supporting Files */,
@@ -275,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8E0EC141E2F616100DDE9A1 /* JFAlgorithmListViewController.m in Sources */,
+				E8E0EC201E36107800DDE9A1 /* JFSortingHelper.m in Sources */,
 				E8E0EC1B1E3462EB00DDE9A1 /* JFSortingViewController.m in Sources */,
 				E8E0EBE41E2F5FFA00DDE9A1 /* AppDelegate.m in Sources */,
 				E8E0EBE11E2F5FFA00DDE9A1 /* main.m in Sources */,
