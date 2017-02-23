@@ -60,6 +60,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     JFSortingViewController *sortVC = [[JFSortingViewController alloc]init];
     sortVC.algorithmString = self.algorithmArray[indexPath.row];
+    if (indexPath.row == 0) {
+        sortVC.sortType = buddleSort;
+    }else if (indexPath.row == 1){
+        sortVC.sortType = quickSort;
+
+    }else if (indexPath.row == 2){
+        sortVC.sortType = selectSort;
+
+    }else if (indexPath.row == 3){
+        sortVC.sortType = inserSort;
+
+    }else if (indexPath.row == 4){
+        sortVC.sortType = shellSort;
+
+    }
     [self.navigationController pushViewController:sortVC animated:YES];
 }
 

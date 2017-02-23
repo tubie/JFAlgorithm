@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSUInteger, SortType) {
+    buddleSort,
+    quickSort,
+    selectSort,
+    inserSort,
+    shellSort
+};
 @interface JFSortingViewController : UIViewController
+@property(nonatomic,assign)SortType sortType;
 @property(nonatomic,strong)NSString *algorithmString;
 
 @end
